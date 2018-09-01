@@ -10,6 +10,11 @@ module.exports={
 		filename:'[name].min.js',
 		path:path.resolve(baseDir,'dist/js/')
 	},
+	resolve:{
+		alias:{
+			vue:'vue/dist/vue.js'
+		}
+	},
 	module:{
 		rules:[
 			//支持将ES2015 JS语法转译成浏览器认识的JS语法

@@ -1,5 +1,6 @@
 # JS
 node_modules
+dist
 spa/npm-debug.log
 spa/yarn-error.log
 
