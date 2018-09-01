@@ -4,7 +4,8 @@ const baseDir = path.join(__dirname,'..');
 module.exports={
 	mode:'development',
 	entry:{
-		app:path.resolve(baseDir,'src/app.js')
+		app:path.resolve(baseDir,'src/js/app.js'),
+		order:path.resolve(baseDir,'src/js/order.js')
 	},
 	output:{
 		filename:'[name].min.js',
