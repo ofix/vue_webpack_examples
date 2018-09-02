@@ -53,7 +53,7 @@ let app = new Vue({
 let y = 123;
 console.log(y/0);
 
-console.log("xxxxzx   sh？");
+console.log("are you OKsssss HHHHHHHHHHHHH？");
 
 new Vue({
     el:'#list-animate-demo',

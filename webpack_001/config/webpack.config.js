@@ -20,7 +20,7 @@ module.exports={
 	output:{
 		filename:'[name].min.js',
 		path:path.resolve(baseDir,'dist/js/'),
-		publicPath:'/'
+		// publicPath:'/'
 	},
 	resolve:{
 		alias:{
