@@ -50,6 +50,10 @@ let app = new Vue({
     }
 });
 
+let y = 123;
+console.log(y/0);
+
+console.log("xxxxzx   sh？");
 
 new Vue({
     el:'#list-animate-demo',

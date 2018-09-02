@@ -1,15 +1,26 @@
 const path = require('path');
 const baseDir = path.join(__dirname,'..');
+const webpack = require('webpack');
 
 module.exports={
 	mode:'development',
+	devtool:'eval-source-map',
+	devServer:{
+		contentBase:path.resolve(baseDir,"dist/"),
+		historyApiFallback:true,
+		inline:true,
+		hot:true,
+		compress:true,
+		progress:true
+	},
 	entry:{
 		app:path.resolve(baseDir,'src/js/app.js'),
 		order:path.resolve(baseDir,'src/js/order.js')
 	},
 	output:{
 		filename:'[name].min.js',
-		path:path.resolve(baseDir,'dist/js/')
+		path:path.resolve(baseDir,'dist/js/'),
+		publicPath:'/'
 	},
 	resolve:{
 		alias:{
@@ -28,5 +39,8 @@ module.exports={
 				}
 			}
 		]
-	}
+	},
+	plugins:[
+		new webpack.HotModuleReplacementPlugin()
+	]
 }
