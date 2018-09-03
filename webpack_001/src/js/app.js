@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import Test from '../components/test.vue'
 
 Vue.component("button-counter",{
     data:function(){
@@ -56,6 +57,11 @@ console.log(y/0);
 console.log("are you OKsssss HHHHHHHHHHHHH？");
 
 new Vue({
+    el:'#app',
+    render:h=>h(Test)
+})
+
+new Vue({
     el:'#list-animate-demo',
     data:{
         animateItems:[1,2,3,4,5,6,7,8,9],
@@ -76,3 +82,4 @@ new Vue({
         }
     }
 });
+

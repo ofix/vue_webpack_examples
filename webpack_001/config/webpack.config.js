@@ -1,6 +1,7 @@
 const path = require('path');
 const baseDir = path.join(__dirname,'..');
 const webpack = require('webpack');
+const vueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports={
 	mode:'development',
@@ -15,7 +16,8 @@ module.exports={
 	},
 	entry:{
 		app:path.resolve(baseDir,'src/js/app.js'),
-		order:path.resolve(baseDir,'src/js/order.js')
+		order:path.resolve(baseDir,'src/js/order.js'),
+		vue:['vue']
 	},
 	output:{
 		filename:'[name].min.js',
@@ -37,10 +39,31 @@ module.exports={
 				options:{
 					presets:['env'],
 				}
+			},{
+				test:/\.css$/,
+				loader:'css-loader',
+				exclude:/node_modules/
+			},{
+				test:/\.scss$/,
+				use:[
+					'style-loader',
+					{
+						loader:'css-loader',
+					  	options:{
+							minimize:true,
+						}
+					},
+					'sass-loader'
+				],
+			},{
+				test:/\.vue$/,
+				use:['vue-loader'],
+				exclude:/node_modules/
 			}
 		]
 	},
 	plugins:[
-		new webpack.HotModuleReplacementPlugin()
+		new webpack.HotModuleReplacementPlugin(),
+		new vueLoaderPlugin()
 	]
 }
